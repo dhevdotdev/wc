@@ -1,0 +1,9 @@
+#!/usr/bin/env zsh
+
+set -euo pipefail
+
+project_root=${0:A:h}
+
+mvn -q -f "$project_root/pom.xml" compile
+
+java -cp "$project_root/target/classes" dev.dhev.Main "$@"
